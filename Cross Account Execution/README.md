@@ -1,5 +1,7 @@
 ### Example of cross-account Lambda execution
 
+
+#### Setup
 1. Setup an IAM Role in the child child/target AWS accounts for this execution
 
 2. Make sure the role's name is identical across all accounts!
@@ -29,3 +31,16 @@
 7. Enter account numbers in to Lambda and cycle through them using STSAssumeRole credentials to modify the boto3 client assumptions
 
 (*Alternatively, you can use a initiator Lambda to invoke other Lambdas, passing the STSAssumeRole credentials to the downstream Lambdas for individualized logging and process separation*)
+
+
+##### About
+
+This lambda_function.py script will cycle through the AWS account numbers in this list:
+```python
+  AWSChildAccounts = [
+    # your aws account numbers
+    '1234567890',
+    '0987654321'
+    ]
+```
+and (on successfully connecting) print out the running ec2 instances in each of the accounts.

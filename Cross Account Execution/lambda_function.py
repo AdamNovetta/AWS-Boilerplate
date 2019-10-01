@@ -60,9 +60,10 @@ def lambda_handler(event, context):
 
     # All of the child accounts we're connecting to
     AWSChildAccounts = [
-        # your account numbers
-        '123456789'
-        ]
+        # your aws account numbers
+        '1234567890',
+        '0987654321'
+    ]
 
     # get the region this script is running from, to target on child accounts
     region = boto3.session.Session().region_name
