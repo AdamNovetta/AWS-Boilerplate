@@ -13,11 +13,11 @@ log.setLevel(logging.INFO)
 
 # AWS Tags to target for starting and stopping
 if os.environ['START_TAG']:
-    start = os.environ['StartTag']
+    start = os.environ['START_TAG']
 else:
     start = 'autoOrc-up'
 if os.environ['STOP_TAG']:
-    stop = os.environ['StopTag']
+    stop = os.environ['STOP_TAG']
 else:
     stop = 'autoOrc-down'
 
