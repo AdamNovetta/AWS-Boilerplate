@@ -27,6 +27,7 @@ Finally, setup an SNS topic name for the email reports that this script will sen
 ```
 Put the SNS topic as an environment variable in the lambda config as : **SNS_TOPIC** with your topic name as the value, or change the above line in the script TopicName = '*your-topic-name*'
 
+Finally, setup a cron/Cloudtrigger to trigger this Lambda script at a set time every day.
 
 #### Lambda Settings:
   * Function name: ***AutoSnapShot*** (or whatever you'd like to call this)
