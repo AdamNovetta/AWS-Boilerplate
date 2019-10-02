@@ -11,3 +11,11 @@
 
 * #### EBS Snapshots - Python3 / Boto3
   * A Lambda script to automatically snapshot EBS volumes and manage the retention of old automatic snapshots. Uses tags on the EBS volumes to determine the frequency of the backups for the volumes.
+
+
+
+
+## AWS Boilerplate commands
+
+* #### One liner commons
+  * Common one line commands used in AWS
