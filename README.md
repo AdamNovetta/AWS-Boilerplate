@@ -3,7 +3,7 @@
 * #### Auto Name EC2 resources - **V.1.3** Python3 / Boto3
   * This Lambda script will rename all EBS volumes, network interfaces, snapshots, and AMIs (owned by the account running the script) in the region. Resources attached to an EC2 instances will get name-tags based on the instance's name-tag.
 
-* #### Auto Start and Stop EC2 & RDS Instances - **AutoOrc v.1.2** - Python3 / Boto3
+* #### Auto Start and Stop EC2 & RDS Instances - **AutoOrc V.1.2** - Python3 / Boto3
   * A Lambda script that will automatically start and stop all ec2 instances and RDS (non-multi AZ support only!) instances in your AWS account based off of start/stop tags applied to the resources.
 
 
