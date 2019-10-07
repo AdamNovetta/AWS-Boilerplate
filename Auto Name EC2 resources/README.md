@@ -1,5 +1,5 @@
 #   Auto Name EC2 Resources - V1.3
-#### Tags EC2 assets (AMIs/EBSs/NICs/Snaps) based on the EC2 Instance 'Name' tag
+#### Tags EC2 assets (AMIs/EBSs/NICs/Snaps)
 --------------------------------------------------------------------------------
 ## Purpose:
 This will rename all EBS volumes, network interfaces, snapshots, and AMIs (owned by the account running the script) in the region:
