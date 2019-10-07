@@ -74,7 +74,7 @@ def rename_amis(counter):
         dob = image.creation_date[0:10]
         ImgName = get_tag_name(image.tags)
         if ImgName.startswith(no_name_label) or len(ImgName) == 0:
-            AMIName += " " + dob
+            AMIName += ' ' + dob
             log.info(f'Labeling Image: {image.id} with {AMIName}')
             ImgNewName = [{'Key': 'Name', 'Value': AMIName}]
             image.create_tags(Tags=ImgNewName)
@@ -102,7 +102,7 @@ def rename_ebs_volumes(EC2IDs, counter):
                 counter.add()
             else:
                 log.info(f'\t - EBS {volume.id} named correctly: {NewVolName}')
-        if volume.state is 'available':
+        if 'available' in volume.state:
             NewVolName = UnattachedLabel + VolumeName
             VolTagNewName = [{'Key': 'Name', 'Value': NewVolName}]
             if not VolumeName.startswith(UnattachedLabel):
@@ -133,7 +133,7 @@ def rename_interfaces(EC2IDs, counter):
                 except Exception as e:
                     NICNewName = 'non-ec2-nic'
                     log.info(f'Interface isn\'t an EC2 instance: {e}')
-        if interface.status is 'available':
+        if 'available' in interface.status:
             NICNewName = UnattachedLabel
         InterfacesNewName = [{'Key': 'Name', 'Value': NICNewName}]
         interface.create_tags(Tags=InterfacesNewName)
@@ -191,3 +191,8 @@ def lambda_handler(event, context):
     rename_snapshots(RenameCounter)
     rename_amis(RenameCounter)
     log.info(f'[ - RENAME FINSIHED, {RenameCounter.total} OBJECTS RENAMED - ]')
+
+
+# Run main on load if running from the command line
+if __name__ == "__main__":
+    lambda_handler('{}', '')
