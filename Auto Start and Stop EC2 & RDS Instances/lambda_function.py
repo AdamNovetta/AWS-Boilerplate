@@ -12,19 +12,19 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
 
 # AWS Tags to target for starting and stopping
-if os.environ['START_TAG']:
+try:
     start = os.environ['START_TAG']
-else:
+except Exception:
     start = 'autoOrc-up'
-if os.environ['STOP_TAG']:
+try:
     stop = os.environ['STOP_TAG']
-else:
+except Exception:
     stop = 'autoOrc-down'
 
 # Start instances only on weekdays? (change to False to start every day)
-if os.environ['ONLY_START_WEEKDAYS']:
+try:
     weekdays = os.environ['ONLY_START_WEEKDAYS']
-else:
+except Exception:
     weekdays = True
 
 
