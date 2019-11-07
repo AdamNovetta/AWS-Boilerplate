@@ -26,9 +26,9 @@ def lambda_handler(event, context):
     AccountNameList = iam.get_paginator('list_account_aliases').paginate()
     AccountName = ''.join([i['AccountAliases'] for i in AccountNameList][0])
     # Set the SNS Topic name either by environment variable or staticly here
-    if os.environ['SNS_TOPIC']:
+    try:
         TopicName = os.environ['SNS_TOPIC']
-    else:
+    except Exception:
         TopicName = 'auto-snapshots'
     SNSARN = f'arn:aws:sns:{ThisRegion}:{AWSID}:{TopicName}'
     # Tags to append to EBS snapshots
