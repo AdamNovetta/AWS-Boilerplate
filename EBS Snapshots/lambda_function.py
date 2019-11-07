@@ -189,7 +189,7 @@ def lambda_handler(event, context):
                 time.sleep(3)
             except Exception as e:
                 log.error(f'ERROR - {sys.exc_info()} on {vol.id} \n {e}')
-                errmsg += f'Error in processing volume with id: {vol.id}'
+                errmsg += f'\nError with volume id: {vol.id}'
                 CountErr += 1
             else:
                 CountSuccess += 1
