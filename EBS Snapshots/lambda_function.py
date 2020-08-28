@@ -117,7 +117,7 @@ def lambda_handler(event, context):
         log.info(f' [ Making {period} snapshots tagged: {TagType} ]')
         VolumeFilter = [{'Name': 'tag:' + TagType, 'Values': ['True']}]
         vols = ec2.volumes.filter(Filters=VolumeFilter)
-        # Sping through volumes creating new snapshots / deleting old ones
+        # Spin through volumes creating new snapshots / deleting old ones
         for vol in vols:
             VName = get_tag_name(vol.tags)
             log.info(f' - Taking snapshot of: {VName} ID: {vol.id}')
